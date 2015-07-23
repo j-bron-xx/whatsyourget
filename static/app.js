@@ -27,7 +27,7 @@ angular.module('whatsyourgetApp', [])
         $scope.loadCountriesData();
         $scope.calculate = function () {
             var calcSalaryDetails = function (salaryGross, tax, fixedCost, rate) {
-                var salaryGrossExchange = salaryGross * rate,
+                var salaryGrossExchange = salaryGross * 22 * rate,
                     fixedCostExchange = fixedCost * rate,
                     tax = (salaryGrossExchange - fixedCostExchange) * tax * 0.01,
                     salaryNet = salaryGrossExchange - tax - fixedCostExchange;
