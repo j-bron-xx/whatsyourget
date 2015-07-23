@@ -1,0 +1,17 @@
+<div ng-controller="currencyRatesController">
+   <form class="pure-form pure-form-stacked pure-g" ng-submit="calculate()">
+      <fieldset class="pure-u-1-2" style="padding-right:30px">
+         <input type="text" placeholder="Your Salary" ng-model="userSalary">
+         <select id="currency"  ng-model="userCurrencyChoice" ng-change="updateUserCurrencyChoice()" ng-options="b as b.name for b in activeCountriesTaxData">
+         </select>
+      </fieldset>
+      <fieldset class="pure-u-1-2" style="padding-left:30px;margin-top:4px;">
+         <button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 16px;">Calculate with fixer.io</button>
+         <button type="submit" class="pure-button pure-button-primary">Calculate with NBP</button>
+      </fieldset>
+   </form>
+
+   <h1 class="splash-head" ng-show="appState == 'calculationReady'">{{calculation.salaryNet}} PLN</h1>
+   <p ng-show="appState == 'calculationReady'">Where tax is: <b>{{calculation.tax}}</b> PLN and fixed cost is: <b>{{calculation.fixedCost}}</b> PLN</p>
+
+</div>

@@ -1,0 +1,17 @@
+[
+  {
+    "code": "GBR",
+    "tax": 25,
+    "fixedCost": 600
+  },
+  {
+    "code": "DEU",
+    "tax": 20,
+    "fixedCost": 800
+  },
+  {
+    "code": "POL",
+    "tax": 19,
+    "fixedCost": 1200
+  }
+]
