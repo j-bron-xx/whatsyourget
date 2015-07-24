@@ -25,7 +25,16 @@ angular.module('whatsyourgetApp', [])
             loadCountriesIsoCodes();
         };
         $scope.loadCountriesData();
+        $scope.calculateServer = function () {
+            $scope.provider = "localhost:8080";
+            $scope.calculate();
+        };
+        $scope.calculateFixer = function () {
+            $scope.provider = "api.fixer.io";
+            $scope.calculate();
+        };
         $scope.calculate = function () {
+            console.log($scope.provider);
             var calcSalaryDetails = function (salaryGross, tax, fixedCost, rate) {
                 var salaryGrossExchange = salaryGross * 22 * rate,
                     fixedCostExchange = fixedCost * rate,
@@ -48,7 +57,7 @@ angular.module('whatsyourgetApp', [])
                 $scope.calculation = calcSalaryDetails($scope.userSalary, $scope.userCurrencyChoice.tax, $scope.userCurrencyChoice.fixedCost, 1);
                 $scope.appState = 'calculationReady';
             } else {
-                $http.get('http://api.fixer.io/latest?base=' + $scope.userCurrencyChoice.currencyCode).
+                $http.get('http://' + $scope.provider +'/latest?base=' + $scope.userCurrencyChoice.currencyCode).
                     success(function (data) {
                         $scope.currencyRatesData = data;
                         $scope.calculation = calcSalaryDetails($scope.userSalary, $scope.userCurrencyChoice.tax, $scope.userCurrencyChoice.fixedCost, $scope.currencyRatesData.rates["PLN"]);

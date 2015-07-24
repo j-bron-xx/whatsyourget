@@ -28,7 +28,11 @@ dependencies {
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // end::actuator[]
-    // tag::tests[]
+//    // tag::tests[]
+//    compile("org.springframework.boot:spring-boot-starter")
+//    compile("org.springframework:spring-web")
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    compile("org.projectlombok:lombok:1.16.2")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     // end::tests[]
 }

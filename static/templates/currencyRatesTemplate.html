@@ -1,13 +1,13 @@
 <div ng-controller="currencyRatesController">
-   <form class="pure-form pure-form-stacked pure-g" ng-submit="calculate()">
+   <form class="pure-form pure-form-stacked pure-g">
       <fieldset class="pure-u-1-2" style="padding-right:30px">
          <input type="text" placeholder="Your Salary" ng-model="userSalary">
          <select id="currency"  ng-model="userCurrencyChoice" ng-change="updateUserCurrencyChoice()" ng-options="b as b.name for b in activeCountriesTaxData">
          </select>
       </fieldset>
       <fieldset class="pure-u-1-2" style="padding-left:30px;margin-top:4px;">
-         <button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 16px;">Calculate with fixer.io</button>
-         <button type="submit" class="pure-button pure-button-primary">Calculate with NBP</button>
+         <button type="submit" class="pure-button pure-button-primary" ng-click="calculateFixer()" style="margin-bottom: 16px;">Calculate with fixer.io</button>
+         <button type="submit" class="pure-button pure-button-primary" ng-click="calculateServer()">Calculate with server</button>
       </fieldset>
    </form>
 
